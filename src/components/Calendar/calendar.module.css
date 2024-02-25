@@ -1,0 +1,184 @@
+.calendarWrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.calendar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 50px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 16px;
+    background-color: var(--white);
+}
+
+.calendar__title {
+    margin-bottom: 30px;
+}
+
+.calendar__nav {
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    transform: scale(100%);
+    transition: transform .3s ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+    transform: scale(110%);
+    transition: transform .3s ease-in-out;
+}
+
+.btn__prev,
+.btn__next {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid var(--black);
+    border-right: 2px solid var(--black);
+    transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.btn__next {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.calendarGridWrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.weekDaysWrap {
+    display: grid;
+    grid-template-columns: repeat(7, 30px);
+    margin-bottom: 10px;
+    gap: 15px;
+}
+
+.weekDaysWrap div {
+    text-align: center;
+    color: var(--greyab);
+}
+
+.dateRow {
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: repeat(7, 30px);
+    grid-template-rows: repeat(1, 30px);
+    gap: 15px;
+}
+
+.dateRow__date {
+    display: block;
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.dateRow__line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--grey91);
+}
+
+.active {
+    outline: 1px solid var(--green);
+    outline-offset: 5px;
+    border-radius: 8px;
+}
+
+.weekend {
+    color: var(--red);
+}
+
+.green {
+    background-color: var(--green);
+}
+
+.orange {
+    background-color: var(--orange);
+}
+
+.dateRowCell {
+    cursor: pointer;
+    padding: 5px;
+    transform: scale(100%);
+    transition: transform .3s ease-in-out;
+}
+
+.dateRowCell:hover {
+    transform: scale(110%);
+    transition: transform .3s ease-in-out;
+}
+
+.chooseBtn {
+    width: 100%;
+    padding: 10px;
+    color: var(--white);
+    text-align: center;
+    border-radius: 16px;
+    transform: scale(100%);
+    background-color: var(--green);
+    transition: transform .3s ease-in-out;
+}
+
+.chooseBtn:hover,
+.chooseBtn:focus {
+    transform: scale(110%);
+    transition: transform .3s ease-in-out;
+}
+
+@media (max-width: 1366px) {
+
+    .calendar {
+        padding: 15px 25px;
+    }
+
+    .calendar__title {
+        margin-bottom: 10px;
+    }
+
+    .btn__prev,
+    .btn__next {
+        width: 10px;
+        height: 10px;
+    }
+
+    .calendar__nav {
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .weekDaysWrap {
+        margin-bottom: 0;
+        grid-template-columns: repeat(7, 25px);
+    }
+
+    ._dateRow {
+        grid-template-columns: repeat(7, 25px);
+        grid-template-rows: repeat(1, 25px);
+    }
+}
